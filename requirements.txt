@@ -5,4 +5,4 @@ seaborn
 matplotlib
 scikit-learn
 
-# -e .
+-e .
