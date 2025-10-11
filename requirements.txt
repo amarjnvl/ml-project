@@ -4,5 +4,6 @@ scikit-learn
 seaborn
 matplotlib
 scikit-learn
+dill
 
--e .
+# -e .

@@ -6,6 +6,8 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split 
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
 
 # The dataclass decorator is used to define a class as a dataclass, which allows for the creation of immutable objects with a simple syntax. 
 # It is essentially a wrapper around the __init__ method of the class, which is responsible for initializing the objects attributes. 
@@ -53,4 +55,7 @@ class DataIngestion:
 # It is a common pattern in Python to have code that is only executed when the file is run directly (not imported), and this code block is used to protect that code from being executed when the file is imported as a module in another program.
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
