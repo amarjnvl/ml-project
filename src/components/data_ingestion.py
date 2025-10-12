@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainerConfig, ModelTrainer
+
 
 # The dataclass decorator is used to define a class as a dataclass, which allows for the creation of immutable objects with a simple syntax. 
 # It is essentially a wrapper around the __init__ method of the class, which is responsible for initializing the objects attributes. 
@@ -59,3 +61,8 @@ if __name__ == "__main__":
 
     data_transformation = DataTransformation()
     train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
+
+    model_trainer = ModelTrainer()
+    r2_square = model_trainer.initiate_model_trainer(train_arr, test_arr)
+
+    print(f"R2 square value: {r2_square}")
